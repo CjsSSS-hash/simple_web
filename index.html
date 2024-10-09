@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Heartfelt Confession</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #FFC0CB;
+            color: #FF1493;
+        }
+        h1 {
+            font-size: 36px;
+            margin-top: 50px;
+        }
+        p {
+            font-size: 24px;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+        .confession {
+            font-size: 48px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+        }
+        .button {
+            display: inline-block;
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌟 A Special Message for You 🌟</h1>
+    <p>Dear [Angel Armario],</p>
+    <div class="confession" id="confession"></div>
+    <button class="button" onclick="revealConfession()">Reveal the Confession 💖</button>
+
+    <!-- Add the audio file -->
+    <audio id="backgroundMusic" src="mymp-kailan-official-lyric-video_bc02PUgo.mp3" loop></audio> <!-- Add the sound file here -->
+    <audio id="messageSound" src="message-reveal.mp3"></audio> <!-- Sound effect for revealing each message -->
+
+    <script>
+        // Function to start the background music
+        function playBackgroundMusic() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        }
+
+        function revealConfession() {
+            // Play background music when the confession starts
+            playBackgroundMusic();
+
+            const messages = [
+                "I’ve been observing you, Angel Armario ...",
+                "and I just want you to know that I admire you 😍.... ",
+                "not only your looks but also your kind heart.", 
+                "Even though you have a boyish way of speaking😂 🥰 ",
+                "I still hope to get to know you better and better💫"
+            ];
+
+            let messageIndex = 0;
+            const confessionElement = document.getElementById('confession');
+            const messageSound = document.getElementById('messageSound');
+
+            const revealInterval = setInterval(() => {
+                // Play sound effect for each message reveal
+                messageSound.play();
+                
+                confessionElement.innerHTML = messages[messageIndex];
+                messageIndex++;
+                
+                if (messageIndex >= messages.length) {
+                    clearInterval(revealInterval);
+                }
+            }, 2000); // Reveals a new message every 2 seconds
+        }
+    </script>
+</body>
+</html>
